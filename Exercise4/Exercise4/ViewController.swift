@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     var myButton:UIButton = {
         let but = UIButton()
         but.translatesAutoresizingMaskIntoConstraints = false
-        but.setTitle("find common divisor", for: .normal)
+        but.setTitle("find divisor", for: .normal)
         but.backgroundColor = .red
         but.addTarget(self, action: #selector(Touch_myButton), for: .touchUpInside)
         return but
@@ -72,28 +72,38 @@ class ViewController: UIViewController {
             return
         }
        
-       printDivisors(x: x)
-       arrayDivisor.sort()
-        print(arrayDivisor)
-        myLabel.text = "Greatest divisor is: " + String(arrayDivisor[arrayDivisor.count-1])
+        myLabel.text = "Greatest divisor is: " +   printDivisors(x: x)
+        
     }
     
     
     
     /////FUNC find Divisor
-    func printDivisors(x:Int){
-        
+    func printDivisors(x:Int)->String{
+        arrayDivisor.removeAll()
         let sqr = sqrt(Double(x))
         for i in 2..<Int(sqr)+1 {
             if x % i == 0 {
-               
+               arrayDivisor.append(i)
                 if i != (x/i) {
-                    print((x/i))
+                   // print((x/i))
+                   
                     arrayDivisor.append(x/i)
-                    
                 }
+                
             }
+           
         }
+        if arrayDivisor.count>0
+        {
+            arrayDivisor.sort()
+            return String(arrayDivisor.last!)
+        }
+        else
+        {
+            return "ERROR!"
+        }
+        
     }
     
     ///////////////////
