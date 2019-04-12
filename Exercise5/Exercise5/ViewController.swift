@@ -81,9 +81,17 @@ class ViewController: UIViewController {
     /////FUNC find Divisor
     func printSum(numberInput:Int)->String{
         var sum = 0
-        for i in 0...numberInput
+        var mul = 1
+        for i in 1...numberInput
         {
-            sum += i
+            mul = 1
+            for y in 1...i
+            {
+                mul *= y
+               
+            }
+             print("mul:  \(mul)")
+             sum += mul
         }
         return String(sum)
     }
