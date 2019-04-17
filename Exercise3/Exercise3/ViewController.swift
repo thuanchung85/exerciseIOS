@@ -133,19 +133,32 @@ class ViewController: UIViewController {
         
         switch sender.currentTitle {
         case "+":
-            myLabel.text = String(x + y)
+            myLabel.text = mathOfTwoNumber(number1: Int(x), number2: Int(y), result: { (x, y) -> String in
+                return String(x + y)
+            })
         case "-":
-            myLabel.text = String(x - y)
+            myLabel.text = mathOfTwoNumber(number1: Int(x), number2: Int(y), result: { (x, y) -> String in
+                return String(x - y)
+            })
         case "x":
-            myLabel.text = String(x * y)
+            myLabel.text = mathOfTwoNumber(number1: Int(x), number2: Int(y), result: { (x, y) -> String in
+                return String(x * y)
+            })
         case "/":
-            myLabel.text = String(x / y)
+            myLabel.text = mathOfTwoNumber(number1: Int(x), number2: Int(y), result: { (x, y) -> String in
+                return String(x / y)
+            })
         default:
             return
         }
     }
     
-    
+    typealias mathClosure = (Int,Int)->String
+                
+    func mathOfTwoNumber(number1:Int, number2:Int, result:mathClosure) ->String{
+        
+       return result(number1,number2)
+    }
     
     
     ///////////////////
