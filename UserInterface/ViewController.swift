@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
        
         //setup logoImage
-        logoImage.image = UIImage(named: "kisspng-computer-icons-facebook-inc-5b2037f7480385.699995421528838135295")
+        logoImage.image = UIImage(named: "fbLogo@1x")
        logoImage.contentMode = .scaleAspectFit
         
         logoImage.translatesAutoresizingMaskIntoConstraints = false
